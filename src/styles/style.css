@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --primary-color: #212121;
+    --secondary-color: #424242;
+    --font-size: 12px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+.content {
+    display: flex;
+}
+
+.sidebar {
+    background-color: var(--primary-color);
+    width: 250px;
+    height: 100vh;
+}
+
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+}
+
+.sidebar-header img {
+    height: 28px;
+    margin-left: 20px;
+}
+
+.task-group, .project-group {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    margin: 20px;
+    gap: 10px;
+}
+
+.project-group {
+    margin-top: 60px;
+}
+
+.group-title {
+    font-size: var(--font-size);
+    font-weight: bold;
+}
+
+.nav-task, .nav-project, .add-new-project {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 400px;
+    gap: 10px;
+    font-size: var(--font-size);
+}
+
+.nav-task img, .nav-project img, .add-new-project img {
+    height: 25px;
+}
+
+#todo-content {
+    background-color: var(--secondary-color);
+}
+

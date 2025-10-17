@@ -1,37 +1,37 @@
-const path = require('path');
-const htmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-    mode: 'development',
-    entry: './src/index.js',
-    output: {
-        path: path.resolve(__dirname,'dist'),
-        filename: 'main.js',
-        clean: true,
-    },
-    plugins: [
-        new htmlWebpackPlugin ({
-            template: "./src/main.html",
-        }),
+  mode: "development",
+  entry: "./src/index.js",
+  output: {
+    filename: "main.js",
+    path: path.resolve(__dirname, "dist"),
+    clean: true,
+  },
+  devtool: "eval-source-map",
+  devServer: {
+    watchFiles: ["./src/main.html"],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/main.html",
+    }),
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+      },
     ],
-    module: {
-        rules: [
-            {
-                test: /\.css$/i,
-                use: ['style-loader','css-loader']
-            },
-            {
-                test: /\.html$/i,
-                use: 'html-loader'
-            },
-            {
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: "asset/resource",
-            },
-        ],
-    },
-    devTool: "eval-source-map",
-    devServer: {
-        watchFiles: './src/main.html'
-    }
+  },
 };
