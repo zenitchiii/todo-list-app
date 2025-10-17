@@ -58,13 +58,23 @@ body {
     display: flex;
     align-items: center;
     height: 40px;
-    width: 400px;
     gap: 10px;
     font-size: var(--font-size);
 }
 
 .nav-task img, .nav-project img, .add-new-project img {
     height: 25px;
+    padding-left: 5px;
+}
+
+.nav-task:hover, .nav-project:hover, .add-new-project:hover {
+    background-color: var(--secondary-color);
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 #todo-content {
