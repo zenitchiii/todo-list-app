@@ -79,5 +79,132 @@ body {
 
 #todo-content {
     background-color: var(--secondary-color);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.heading {
+    margin: 20px;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.form-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 320px;
+    padding: 25px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(30, 30, 30, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    color: #f1f1f1;
+    backdrop-filter: blur(10px);
+
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.form-container.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.hidden {
+    display: none;
+}
+
+.form-container h3 {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #e0e0e0;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+#taskPromptForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.form-container label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #b5b5b5;
+    align-self: flex-start;
+}
+
+.form-container input[type='text'],
+.form-container input[type='date'],
+.form-container select {
+    width: 100%;
+    background: #2b2b2b;
+    border: 1px solid #3d3d3d;
+    border-radius: 8px;
+    padding: 10px;
+    color: #f1f1f1;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+}
+
+.form-container input:focus,
+.form-container select:focus {
+    border-color: #5a5a5a;
+    background: #323232;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
+}
+
+.form-container select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23cfcfcf' viewBox='0 0 20 20'%3E%3Cpolygon points='5,7 15,7 10,13'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+}
+
+.form-container button {
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#submitTaskBtn {
+    background: #3a3a3a;
+    color: #f1f1f1;
+}
+
+#submitTaskBtn:hover {
+    background: #4a4a4a;
+    transform: translateY(-2px);
+}
+
+#cancelTaskBtn {
+    background: #222;
+    color: #aaa;
+}
+
+#cancelTaskBtn:hover {
+    background: #2c2c2c;
+    color: #ddd;
+    transform: translateY(-2px);
+}
