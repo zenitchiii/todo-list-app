@@ -1,4 +1,4 @@
-function mainPage() {
+function newTask() {
     const container = document.getElementById('todo-content');
     const classes = ['heading', 'addNewTask'];
     
@@ -75,4 +75,4 @@ function mainPage() {
     });
 };
 
-export default mainPage;
+export default newTask;

@@ -1,4 +1,5 @@
 import folderImg from "/src/assets/folder-svgrepo-com.svg";
+import addProjectFolderOption from "./addProjectFolderOption";
 
 function addProject() {
     const container = document.getElementById('todo-content');
@@ -10,7 +11,7 @@ function addProject() {
         if (document.querySelector('.projectForm')) {
             const existingForm = document.querySelector('.projectForm');
             existingForm.remove(); 
-            }
+        }
 
 
         const projectForm = document.createElement('div');
@@ -59,6 +60,8 @@ function addProject() {
                 `;
 
                 projectGroup.appendChild(newProject);
+
+                addProjectFolderOption(projectName);
 
                 projectNameInput.value = '';
                 formContainer.classList.remove('active');

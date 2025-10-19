@@ -1,8 +1,8 @@
 import './styles/style.css'
-import mainPage from './modules/mainPage'
+import newTask from './modules/newTask'
 import dateInput from './modules/dateInput';
 import addProject from './modules/addProject';
 
-mainPage();
+newTask();
 dateInput();
 addProject();
