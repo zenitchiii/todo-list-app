@@ -15,14 +15,14 @@ body {
 
 .content {
     display: flex;
+    height: auto;
 }
 
 .sidebar {
     background-color: var(--primary-color);
     width: 250px;
-    height: 100vh;
+    height: auto;
 }
-
 
 .sidebar-header {
     display: flex;
@@ -80,7 +80,8 @@ body {
 #todo-content {
     background-color: var(--secondary-color);
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -92,20 +93,40 @@ body {
     font-weight: 600;
 }
 
-.form-container {
+#addNewBtn {
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #212121;
+    color: #f1f1f1;
+    font-family: inherit;
+    box-shadow: var(--box-shadow);
+}
+
+#addNewBtn:hover {
+    background: #323232;
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow);
+}
+
+.form-container, .projectForm-container {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.9);
     width: 320px;
-    padding: 25px 20px;
+    padding: 25px 30px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    background: rgba(30, 30, 30, 0.95);
+    background: rgba(30, 30, 30, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
@@ -117,7 +138,7 @@ body {
     z-index: 1000;
 }
 
-.form-container.active {
+.form-container.active, .projectForm-container.active {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
 }
@@ -126,7 +147,7 @@ body {
     display: none;
 }
 
-.form-container h3 {
+.form-container h3, .projectForm-container h3 {
     text-align: center;
     font-size: 1.3rem;
     color: #e0e0e0;
@@ -134,7 +155,7 @@ body {
     letter-spacing: 0.5px;
 }
 
-#taskPromptForm {
+#taskPromptForm, #projectPromptForm {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -142,7 +163,7 @@ body {
     width: 100%;
 }
 
-.form-container label {
+.form-container label, .projectForm-container label {
     font-size: 0.9rem;
     font-weight: 500;
     color: #b5b5b5;
@@ -151,7 +172,8 @@ body {
 
 .form-container input[type='text'],
 .form-container input[type='date'],
-.form-container select {
+.form-container select,
+.projectForm-container input {
     width: 100%;
     background: #2b2b2b;
     border: 1px solid #3d3d3d;
@@ -160,14 +182,26 @@ body {
     color: #f1f1f1;
     font-size: 0.95rem;
     outline: none;
-    transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+    font-family: inherit;
 }
 
 .form-container input:focus,
+.projectForm-container input:focus {
+    border-color: #5a5a5a;
+    background: #323232;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
+}
+
 .form-container select:focus {
     border-color: #5a5a5a;
     background: #323232;
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23cfcfcf' viewBox='0 0 20 20'%3E%3Cpolygon points='5,7 15,7 10,13'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+
 }
 
 .form-container select {
@@ -178,33 +212,50 @@ body {
     background-size: 12px;
 }
 
-.form-container button {
+.form-container button,
+.projectForm-container button {
     width: 100%;
-    border: none;
+    border: none;   
     border-radius: 8px;
     padding: 10px;
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
+    font-family: inherit;
 }
 
-#submitTaskBtn {
+#submitTaskBtn, #submitProjBtn {
     background: #3a3a3a;
     color: #f1f1f1;
 }
 
-#submitTaskBtn:hover {
+#submitTaskBtn:hover, #submitProjBtn:hover {
     background: #4a4a4a;
     transform: translateY(-2px);
 }
 
-#cancelTaskBtn {
+#cancelTaskBtn, #cancelProjBtn {
     background: #222;
     color: #aaa;
 }
 
-#cancelTaskBtn:hover {
+#cancelTaskBtn:hover, #cancelProjBtn:hover {
     background: #2c2c2c;
     color: #ddd;
     transform: translateY(-2px);
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  display: none;
+}
+
+#overlay.active {
+  display: block;
 }
