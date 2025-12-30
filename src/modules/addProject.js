@@ -1,5 +1,6 @@
 import folderImg from "/src/assets/folder-svgrepo-com.svg";
 import addProjectFolderOption from "./addProjectFolderOption";
+import deleteProject from "./deleteProject.js";
 
 function addProject() {
     const container = document.getElementById('todo-content');
