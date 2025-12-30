@@ -264,3 +264,22 @@ body {
 #overlay.active {
   display: block;
 }
+
+.footer {
+    color: #f1f1f1;           
+    padding: 20px 0;            
+    text-align: center;       
+    margin-top: 30px;          
+    border-top: 1px solid #444; 
+}
+
+.footer-text {
+    font-family: 'Poppins', sans-serif; 
+    font-size: var(--font-size);                  
+    margin: 0;                         
+}
+
+.footer a, .footer:visited {
+    color: #f1f1f1;
+    text-decoration: none;
+}

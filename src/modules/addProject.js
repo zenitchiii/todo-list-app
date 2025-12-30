@@ -13,7 +13,6 @@ function addProject() {
             existingForm.remove(); 
         }
 
-
         const projectForm = document.createElement('div');
         projectForm.classList.add('projectForm');
         projectForm.innerHTML = `
