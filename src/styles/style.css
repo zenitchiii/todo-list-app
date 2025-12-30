@@ -283,3 +283,39 @@ body {
     color: #f1f1f1;
     text-decoration: none;
 }
+
+.delete-project-btn {
+    position: absolute;
+    right: 8px;
+
+    background: transparent;
+    border: none;
+    color: #b5b5b5;
+
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.2s ease;
+
+    font-family: inherit;
+}
+
+/* show delete on hover */
+.nav-project:hover .delete-project-btn {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* hover danger effect */
+.delete-project-btn:hover {
+    color: #ff5f5f;
+    transform: scale(1.15);
+}
+
+/* click feedback */
+.delete-project-btn:active {
+    transform: scale(0.95);
+}

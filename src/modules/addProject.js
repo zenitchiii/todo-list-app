@@ -57,11 +57,13 @@ function addProject() {
                 newProject.innerHTML = `
                     <img src="${folderImg}" alt="${projectName} Logo">
                     <p>${projectName}</p>
+                    <button type="button" class="delete-project-btn">✖</button>
                 `;
 
                 projectGroup.appendChild(newProject);
 
                 addProjectFolderOption(projectName);
+                deleteProject(newProject);
 
                 projectNameInput.value = '';
                 formContainer.classList.remove('active');
